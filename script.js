@@ -126,15 +126,12 @@ for(i=0;i<photos.length;i++){
    })
    }
  
-let val=""
   
-   let text=document.getElementById('searchInput')
+  
   let btn=document.getElementById("text")
-  text.addEventListener("click",(e)=>{
-   val=e.target.innerText
-  })
-  btn.addEventListener("click",function searchForImg(string=val){
-    
+ 
+  btn.addEventListener("click",function searchForImg(){
+    let string=document.getElementById("searchInput").value
     fetch(`https://api.pexels.com/v1/search/?query=${string}`,{
        method:"GET",
        headers:{
