@@ -16,51 +16,48 @@ function getData(){
 })
 .then((json)=>{
   console.log(json)
-let dataArr=json.data
+
 // let svg=document.querySelectorAll("svg")
 let card=document.querySelectorAll(".col-md-4")
 
-for(i=0;i<card.length;i++){
-    let inner=card[i]
-  
- for(j=0;j<dataArr.length;j++){
-   let arr=dataArr[j]
-inner.innerHTML=` <div class="col-md-4">
-<div class="card mb-4 shadow-sm">
- 
-    class="bd-placeholder-img card-img-top"
-    width="100%"
-    height="225"
-    <img src="${arr.photos.url}" alt="">
-class="card-body">
-    <p class="card-text">
-      This is a wider card with supporting text below as a natural
-      lead-in to additional content. This content is a little bit
-      longer.
-    </p>
-    <div
-      class="d-flex justify-content-between align-items-center"
-    >
-      <div class="btn-group">
-        <button
-          type="button"
-          class="btn btn-sm btn-outline-secondary"
-        >
-          View
-        </button>
-        <button
-          type="button"
-          class="btn btn-sm btn-outline-secondary"
-        >
-          Edit
-        </button>
-      </div>
-      <small class="text-muted">${arr.photos.id}</small>
-    </div>
-  </div>
+let photos=json.photos
+for(i=0;i<photos.length;i++){
+ let img=photos[i]
+ console.log(img.src.large)
+ card[i].innerHTML=`
+ <div class="col-md-4">
+ <div class="card mb-4 shadow-sm">
+ <img src="${img.src.large}" alt="">
+   <div class="card-body">
+     <p class="card-text">
+       This is a wider card with supporting text below as a natural
+       lead-in to additional content. This content is a little bit
+       longer.
+     </p>
+     <div
+       class="d-flex justify-content-between align-items-center"
+     >
+       <div class="btn-group">
+         <button
+           type="button"
+           class="btn btn-sm btn-outline-secondary"
+         >
+           View
+         </button>
+         <button
+           type="button"
+           class="btn btn-sm btn-outline-secondary"
+         >
+           Edit
+         </button>
+       </div>
+       <small class="text-muted">id: ${img.id}</small>
+     </div>
+   </div>
+ </div>
 </div>
-</div>`
-}
+ `
+   
 }
 })
 .catch((err)=>{
@@ -81,6 +78,47 @@ function getData2(){
    })
    .then((json)=>{
      console.log(json)
+     let card=document.querySelectorAll(".col-md-4")
+
+let photos=json.photos
+for(i=0;i<photos.length;i++){
+ let img=photos[i]
+ console.log(img.src.large)
+ card[i].innerHTML=`
+ <div class="col-md-4">
+ <div class="card mb-4 shadow-sm">
+ <img src="${img.src.large}" alt="">
+   <div class="card-body">
+     <p class="card-text">
+       This is a wider card with supporting text below as a natural
+       lead-in to additional content. This content is a little bit
+       longer.
+     </p>
+     <div
+       class="d-flex justify-content-between align-items-center"
+     >
+       <div class="btn-group">
+         <button
+           type="button"
+           class="btn btn-sm btn-outline-secondary"
+         >
+           View
+         </button>
+         <button
+           type="button"
+           class="btn btn-sm btn-outline-secondary"
+         >
+           Edit
+         </button>
+       </div>
+       <small class="text-muted">id: ${img.id}</small>
+     </div>
+   </div>
+ </div>
+</div>
+ `
+   
+}
    })
    .catch((err)=>{
        console.log(err)
@@ -107,7 +145,47 @@ let val=""
        return data.json()
    })
    .then((json)=>{
-     console.log(json)
+    let card=document.querySelectorAll(".col-md-4")
+
+    let photos=json.photos
+    for(i=0;i<photos.length;i++){
+     let img=photos[i]
+     console.log(img.src.large)
+     card[i].innerHTML=`
+     <div class="col-md-4">
+     <div class="card mb-4 shadow-sm">
+     <img src="${img.src.large}" alt="">
+       <div class="card-body">
+         <p class="card-text">
+           This is a wider card with supporting text below as a natural
+           lead-in to additional content. This content is a little bit
+           longer.
+         </p>
+         <div
+           class="d-flex justify-content-between align-items-center"
+         >
+           <div class="btn-group">
+             <button
+               type="button"
+               class="btn btn-sm btn-outline-secondary"
+             >
+               View
+             </button>
+             <button
+               type="button"
+               class="btn btn-sm btn-outline-secondary"
+             >
+               Edit
+             </button>
+           </div>
+           <small class="text-muted">id: ${img.id}</small>
+         </div>
+       </div>
+     </div>
+    </div>
+     `
+       
+    }
      
    })
    .catch((err)=>{
